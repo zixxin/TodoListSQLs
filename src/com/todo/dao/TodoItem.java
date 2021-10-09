@@ -88,7 +88,7 @@ public class TodoItem {
     
     public String toString() {
     	if(is_completed == 0) return "[" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
-    	else return  "[V] [" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
+    	else return  "[" + category + "] " + title + "[V] - " + desc + " - " + due_date + " - " + current_date;
     }
     
     public String toSaveString() {

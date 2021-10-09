@@ -73,10 +73,8 @@ public class TodoMain {
 				break;
 				
 			case "comp":
-				System.out.println("[수행 완료] 체크할 항목의 ID 입력 > ");
 				int id = sc.nextInt();
 				TodoUtil.completeItem(l, id);
-				sc.nextLine();
 				break;
 				
 			case "ls_comp":
