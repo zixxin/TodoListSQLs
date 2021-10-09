@@ -35,6 +35,7 @@ public class TodoList {
 			pstmt.setString(5, t.getDue_date());
 			//pstmt.setString(6,  t.getIsCompleted());
 			count = pstmt.executeUpdate();
+			pstmt.close();	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -178,8 +179,8 @@ public class TodoList {
 			pstmt.setString(1, keyword);
 			ResultSet rs = pstmt.executeQuery();
 			changeToList_ItemType(list, rs);
-			//String cate = rs.getString("category");
-			//list.add(cate);
+			//String category = rs.getString("category");
+			//list.add(category);
 			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
