@@ -77,7 +77,7 @@ public class TodoItem {
     public void setCurrent_date(String current_date) {
         this.current_date = current_date;
     }
-    
+ 
     public int getIsCompleted() {
 		return is_completed;
 	}
@@ -85,10 +85,10 @@ public class TodoItem {
     public void setIsCompleted(int num) {
 		this.is_completed = num;
 	}
-    
+  
     public String toString() {
     	if(is_completed == 0) return "[" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
-    	else return  "[" + category + "] " + title + "[V] - " + desc + " - " + due_date + " - " + current_date;
+    	return  "[" + category + "] " + title + "[V] - " + desc + " - " + due_date + " - " + current_date;
     }
     
     public String toSaveString() {

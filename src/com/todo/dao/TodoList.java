@@ -96,14 +96,14 @@ public class TodoList {
 				TodoItem t = new TodoItem(title, category, description, due_date);
 				t.setId(id);
 				t.setCurrent_date(current_date);
-
+				
 				if (rs.getInt("is_completed") == 1) {
 					t.setIsCompleted(1);
 				}
 				else {
 					t.setIsCompleted(0);
 				}
-
+				 
 				list.add(t);
 			}
 			stmt.close();
@@ -222,6 +222,7 @@ public class TodoList {
 			else {
 				item.setIsCompleted(0);
 			}
+			
 			list.add(item);
 		}
 	}
@@ -292,7 +293,7 @@ public class TodoList {
 	public int indexOf(TodoItem t) {
 		return list.indexOf(t);
 	}
-	
+	/*
 	public void importData(String filename) {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -325,4 +326,5 @@ public class TodoList {
 			e.printStackTrace();
 		}
 	}
+	*/
 }
