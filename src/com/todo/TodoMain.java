@@ -60,16 +60,16 @@ public class TodoMain {
 				
 			case "ls_date":
 				System.out.println("[날짜순] 정렬 완료!");
-				TodoUtil.listAll(l, "current_date", 1);
+				TodoUtil.listAll(l, "due_date", 1);
 				break;
 				
 			case "ls_date_desc":
 				System.out.println("[날짜역순] 정렬 완료!");
-				TodoUtil.listAll(l, "current_date", 0);
+				TodoUtil.listAll(l, "due_date", 0);
 				break;
 				
 			case "ls_cate":
-				TodoUtil.listCateAll(l);
+				TodoUtil.listCate(l);
 				break;
 				
 			case "comp":

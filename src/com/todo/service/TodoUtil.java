@@ -222,14 +222,4 @@ public class TodoUtil {
 		}
 		System.out.printf("\n총 %d개의 항목을 찾았습니다.\n", count);
 	}
-	
-	public static void listCateAll(TodoList l) {
-		int count = 0;
-		
-		for(String item : l.getCategories()) {
-			System.out.print(item + " ");
-			count++;
-		}
-		System.out.printf("\n총 %d개의 카테고리가 등록되어 있습니다.\n", count);
-	}
 }

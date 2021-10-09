@@ -17,7 +17,7 @@ public class TodoItem {
         this.category = category;
         this.desc = desc;
         this.due_date = due_date;
-        SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
         this.current_date = f.format(new Date());
     }
     
@@ -26,7 +26,7 @@ public class TodoItem {
         this.category = category;
         this.desc = desc;
         this.due_date = due_date;
-        SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+        SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd kk:mm:ss");
         this.current_date = f.format(new Date());
     }
     

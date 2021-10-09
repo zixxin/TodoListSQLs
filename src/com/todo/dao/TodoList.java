@@ -126,7 +126,7 @@ public class TodoList {
 			pstmt.setString(3, keyword);
 			ResultSet rs = pstmt.executeQuery();
 			
-			changeToList_ItemType(list, rs);
+			changeListToType(list, rs);
 			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -143,7 +143,7 @@ public class TodoList {
 			String sql = "SELECT * FROM list ORDER BY " + orderby;
 			if (ordering == 0) sql += " desc";
 			ResultSet rs = stmt.executeQuery(sql);
-			changeToList_ItemType(list, rs);
+			changeListToType(list, rs);
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -177,9 +177,7 @@ public class TodoList {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, keyword);
 			ResultSet rs = pstmt.executeQuery();
-			changeToList_ItemType(list, rs);
-			//String category = rs.getString("category");
-			//list.add(category);
+			changeListToType(list, rs);
 			pstmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -203,7 +201,7 @@ public class TodoList {
 		return count;
 	}
 	
-	private static void changeToList_ItemType(ArrayList<TodoItem> list, ResultSet rs) throws SQLException {
+	private static void changeListToType(ArrayList<TodoItem> list, ResultSet rs) throws SQLException {
 		while(rs.next()) {
 			TodoItem item = new TodoItem(
 					rs.getString("title"),
@@ -269,7 +267,7 @@ public class TodoList {
 			stmt = conn.createStatement();
 			String sql = "SELECT * FROM list WHERE is_completed=1";
 			ResultSet rs = stmt.executeQuery(sql);
-			changeToList_ItemType(list, rs);			
+			changeListToType(list, rs);			
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
