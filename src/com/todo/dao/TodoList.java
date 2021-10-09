@@ -15,14 +15,14 @@ import com.todo.service.DbConnect;
 
 public class TodoList {
 	private List<TodoItem> list;
-	private Connection conn;
+	Connection conn;
 
 	public TodoList() {
 		this.conn = DbConnect.getConnection();
 	}
 
 	public int addItem(TodoItem t) {
-		String sql = "insert into list (title, memo, category, current_date, due_date, is_completed)"
+		String sql = "insert into list (title, memo, category, current_date, due_date)"
 				+ "values (?, ?, ?, ?, ?);";
 		PreparedStatement pstmt;
 		int count = 0;
