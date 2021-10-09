@@ -33,7 +33,6 @@ public class TodoList {
 			pstmt.setString(3, t.getCategory());
 			pstmt.setString(4, t.getCurrent_date());
 			pstmt.setString(5, t.getDue_date());
-			//pstmt.setString(6,  t.getIsCompleted());
 			count = pstmt.executeUpdate();
 			pstmt.close();	
 		} catch (SQLException e) {
