@@ -103,6 +103,13 @@ public class TodoList {
 				else {
 					t.setIsCompleted(0);
 				}
+				
+				if (rs.getInt("is_doing") == 1) {
+					t.setIsDoing(1);
+				}
+				else {
+					t.setIsDoing(0);
+				}
 				 
 				list.add(t);
 			}
@@ -220,6 +227,12 @@ public class TodoList {
 			else {
 				item.setIsCompleted(0);
 			}
+			if (rs.getInt("is_doing") == 1) {
+				item.setIsDoing(1);
+			}
+			else {
+				item.setIsDoing(0);
+			}
 			
 			list.add(item);
 		}
@@ -240,6 +253,22 @@ public class TodoList {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return false;
+	}
+	
+	public boolean doingItem(int id) {
+		String sql = "update list set is_doing=1 where id = " + id;
+		Statement stmt;
+		int count = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			count = stmt.executeUpdate(sql);
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(count > 0) return true;
 		return false;
 	}
 
@@ -279,6 +308,22 @@ public class TodoList {
 		return false;
 	}
 	
+	public ArrayList<TodoItem> doingList() {
+		ArrayList<TodoItem> list = new ArrayList<TodoItem>();
+		Statement stmt;
+		
+		try {
+			stmt = conn.createStatement();
+			String sql = "SELECT * FROM list WHERE is_doing=1";
+			ResultSet rs = stmt.executeQuery(sql);
+			changeListToType(list, rs);			
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
 	public ArrayList<TodoItem> completeList() {
 		ArrayList<TodoItem> list = new ArrayList<TodoItem>();
 		Statement stmt;
@@ -311,38 +356,4 @@ public class TodoList {
 	public int indexOf(TodoItem t) {
 		return list.indexOf(t);
 	}
-	/*
-	public void importData(String filename) {
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String line;
-			String sql = "insert into list (title, memo, category, current_date, due_date)"
-					+ " values (?, ?, ?, ?, ?);";
-			
-			int records = 0;
-			while((line = br.readLine()) != null) {
-				StringTokenizer st = new StringTokenizer(line, "##");
-				String category = st.nextToken();
-				String title = st.nextToken();
-				String description = st.nextToken();
-				String due_date = st.nextToken();
-				String current_date = st.nextToken();
-				
-				PreparedStatement pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, title);
-				pstmt.setString(2, description);
-				pstmt.setString(3, category);
-				pstmt.setString(4, current_date);
-				pstmt.setString(5, due_date);
-				int count = pstmt.executeUpdate();
-				if(count>0) records++;
-				pstmt.close();
-			}
-			System.out.println(records + " records read!!");
-			br.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	*/
 }

@@ -11,6 +11,7 @@ public class TodoItem {
     private String category;
     private String due_date;
     private int is_completed;
+    private int is_doing;
 
     public TodoItem(String title, String category, String desc, String due_date){
         this.title = title;
@@ -85,10 +86,19 @@ public class TodoItem {
     public void setIsCompleted(int num) {
 		this.is_completed = num;
 	}
+    
+    public int getIsDoing() {
+		return is_doing;
+	}
+    
+    public void setIsDoing(int num) {
+		this.is_doing = num;
+	}
   
     public String toString() {
-    	if(is_completed == 0) return "[" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
-    	return  "[" + category + "] " + title + "[V] - " + desc + " - " + due_date + " - " + current_date;
+    	if(is_completed == 1) return "[" + category + "] " + title + "[V] - " + desc + " - " + due_date + " - " + current_date;
+    	else if(is_doing == 1) return "[" + category + "] " + title + "[ㅁ] - " + desc + " - " + due_date + " - " + current_date;
+    	return  "[" + category + "] " + title + " - " + desc + " - " + due_date + " - " + current_date;
     }
     
     public String toSaveString() {

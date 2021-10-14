@@ -82,6 +82,11 @@ public class TodoMain {
 				int id = sc.nextInt();
 				TodoUtil.completeItem(l, id);
 				break;
+				
+			case "doing":
+				int ids = sc.nextInt();
+				TodoUtil.doingItem(l, ids);
+				break;
 			
 			case "comp(3)":
 				int id1 = sc.nextInt();
@@ -92,6 +97,10 @@ public class TodoMain {
 				
 			case "ls_comp":
 				TodoUtil.completeList(l);
+				break;
+				
+			case "ls_doing":
+				TodoUtil.doingList(l);
 				break;
 				
 			case "help":

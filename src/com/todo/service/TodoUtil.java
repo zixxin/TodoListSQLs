@@ -93,6 +93,16 @@ public class TodoUtil {
 		if(l.updateItem(t)>0) 
 			System.out.println("[항목 수정 완료]");
 	}
+	
+	public static void doingItem(TodoList l, int id) {
+		if(l.doingItem(id)) {
+			System.out.println("[수행 중]으로 변경 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
 
 	public static void completeItem(TodoList l, int id) {
 		if(l.completeItem(id)) {
@@ -112,6 +122,15 @@ public class TodoUtil {
 			System.out.println("ID가 올바르지 않습니다.");
 			System.out.println("입력하신 ID를 다시 확인해주세요.");
 		}
+	}
+	
+	public static void doingList(TodoList l) {
+		int count = 0;
+		for (TodoItem item : l.doingList()) {
+			System.out.println(item.getId() + item.toString());
+			count ++;
+		}
+		System.out.printf("\n%d개의 항목을 찾았습니다.\n", count);	
 	}
 	
 	public static void completeList(TodoList l) {
@@ -146,47 +165,6 @@ public class TodoUtil {
 		
 		for (TodoItem item : l.getOrderedList(orderby, ordering)) {
 			System.out.println(item.getId() + item.toString());
-		}
-	}
-	
-	public static void saveList(TodoList l, String filename) {
-		try {
-			Writer w = new FileWriter(filename);
-			for (TodoItem item : l.getList()) {
-				w.write(item.toSaveString());
-			}
-			w.close();
-			System.out.println("\nTodoList를 " + filename + "에 저장 완료!");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void loadList(TodoList l, String filename) {
-		//BufferedReader, FileReader, StringTokenizer
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String oneline;
-			
-			while((oneline = br.readLine()) != null) {
-				StringTokenizer st = new StringTokenizer(oneline, "##");
-				String title = st.nextToken();
-				String category = st.nextToken();
-				String desc = st.nextToken();
-				String due_date = st.nextToken();
-				String current_date = st.nextToken();
-				
-				TodoItem t = new TodoItem(title, category, desc, due_date, current_date);
-				l.addItem(t);
-			}
-			br.close();
-			System.out.println(filename + "의 TodoList를 로딩 완료!");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 	
