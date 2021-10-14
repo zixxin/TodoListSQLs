@@ -47,6 +47,17 @@ public class TodoUtil {
 		if (l.deleteItem(index)>0)
 			System.out.println("[항목 삭제 완료]");
 	}
+	
+	public static void deleteItem(TodoList l, int id1, int id2, int id3) {
+		if (l.deleteItem(id1)>0)
+			System.out.println(id1 + " [항목 삭제 완료]");
+		if (l.deleteItem(id2)>0)
+			System.out.println(id2 + " [항목 삭제 완료]");
+		if (l.deleteItem(id3)>0)
+			System.out.println(id3 + " [항목 삭제 완료]");
+		
+		System.out.println("총 3개의 항목 [삭제 완료]");
+	}
 
 
 	public static void updateItem(TodoList l) {
@@ -85,6 +96,16 @@ public class TodoUtil {
 
 	public static void completeItem(TodoList l, int id) {
 		if(l.completeItem(id)) {
+			System.out.println("[수행 완료]로 변경 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
+	
+	public static void completeItem(TodoList l, int id1, int id2, int id3) {
+		if(l.completeItem(id1, id2, id3)) {
 			System.out.println("[수행 완료]로 변경 완료");
 		}
 		else {

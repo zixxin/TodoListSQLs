@@ -13,7 +13,6 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;
 		boolean quit = false;
-		//TodoUtil.loadList(l, "todolist.txt");
 		
 		Menu.displaymenu();
 		do {
@@ -28,6 +27,13 @@ public class TodoMain {
 			
 			case "del":
 				TodoUtil.deleteItem(l);
+				break;
+				
+			case "del(3)":
+				int ids1 = sc.nextInt();
+				int ids2 = sc.nextInt();
+				int ids3 = sc.nextInt();
+				TodoUtil.deleteItem(l, ids1, ids2, ids3);
 				break;
 				
 			case "edit":
@@ -71,10 +77,17 @@ public class TodoMain {
 			case "ls_cate":
 				TodoUtil.listCate(l);
 				break;
-				
-			case "comp":
+			
+			case "comp(1)":
 				int id = sc.nextInt();
 				TodoUtil.completeItem(l, id);
+				break;
+			
+			case "comp(3)":
+				int id1 = sc.nextInt();
+				int id2 = sc.nextInt();
+				int id3 = sc.nextInt();
+				TodoUtil.completeItem(l, id1, id2, id3);
 				break;
 				
 			case "ls_comp":
@@ -97,6 +110,5 @@ public class TodoMain {
 			
 			if(isList) TodoUtil.listAll(l);
 		} while (!quit);
-		TodoUtil.saveList(l, "todolist.txt");
 	}
 }
