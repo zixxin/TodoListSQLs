@@ -256,6 +256,22 @@ public class TodoList {
 		return false;
 	}
 	
+	public boolean notDoingItem(int id) {
+		String sql = "update list set is_doing=0 where id = " + id;
+		Statement stmt;
+		int count = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			count = stmt.executeUpdate(sql);
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(count > 0) return true;
+		return false;
+	}
+	
 	public boolean doingItem(int id) {
 		String sql = "update list set is_doing=1 where id = " + id;
 		Statement stmt;
@@ -284,6 +300,22 @@ public class TodoList {
 			count = stmt.executeUpdate(sql1);
 			count = stmt.executeUpdate(sql2);
 			count = stmt.executeUpdate(sql3);
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(count > 0) return true;
+		return false;
+	}
+	
+	public boolean notCompItem(int id) {
+		String sql = "update list set is_completed=0 where id = " + id;
+		Statement stmt;
+		int count = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			count = stmt.executeUpdate(sql);
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -94,6 +94,26 @@ public class TodoUtil {
 			System.out.println("[항목 수정 완료]");
 	}
 	
+	public static void notDoingItem(TodoList l, int id) {
+		if(l.notDoingItem(id)) {
+			System.out.println("[수행 중] 취소 변경 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
+	
+	public static void notCompItem(TodoList l, int id) {
+		if(l.notCompItem(id)) {
+			System.out.println("[수행완료] 취소 변경 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
+	
 	public static void doingItem(TodoList l, int id) {
 		if(l.doingItem(id)) {
 			System.out.println("[수행 중]으로 변경 완료");

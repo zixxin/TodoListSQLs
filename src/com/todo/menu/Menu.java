@@ -18,9 +18,11 @@ public class Menu {
         System.out.println("[ls_date_desc] 날짜역순 정렬");
         System.out.println("[ls_cate] 카테고리 목록 출력");
         System.out.println("[doing] 항목 수행 중으로 변경");
+        System.out.println("[del_doing] 항목 수행 중 변경 취소");
         System.out.println("[doing(3)] 3개의 항목 동시에 수행 중으로 변경");
         System.out.println("[ls_doing] 수행 중인 항목 출력");
         System.out.println("[comp(1)] 1개의 항목 수행완료 여부 변경");
+        System.out.println("[del_comp] 항목 수행 완료 변경 취소");
         System.out.println("[comp(3)] 3개의 항목 동시 수행완료 여부 변경");
         System.out.println("[ls_comp] 수행완료 항목 출력");
         System.out.println("[ls_start] 수행 시작한 항목만 모아서 출력");

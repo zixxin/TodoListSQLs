@@ -83,9 +83,19 @@ public class TodoMain {
 				TodoUtil.completeItem(l, id);
 				break;
 				
+			case "del_comp":
+				int iddels = sc.nextInt();
+				TodoUtil.notCompItem(l, iddels);
+				break;
+				
 			case "doing":
 				int ids = sc.nextInt();
 				TodoUtil.doingItem(l, ids);
+				break;
+			
+			case "del_doing":
+				int iddel = sc.nextInt();
+				TodoUtil.notDoingItem(l, iddel);
 				break;
 			
 			case "comp(3)":
