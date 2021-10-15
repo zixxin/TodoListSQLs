@@ -103,6 +103,10 @@ public class TodoMain {
 				TodoUtil.doingList(l);
 				break;
 				
+			case "ls_start":
+				TodoUtil.startList(l);
+				break;
+				
 			case "help":
 				Menu.displaymenu();
 				break; 

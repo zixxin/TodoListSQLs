@@ -124,6 +124,24 @@ public class TodoUtil {
 		}
 	}
 	
+	public static void startList(TodoList l) {
+		int count1 = 0;
+		int count2 = 0;
+		
+		System.out.println("[수행 중인 항목]");
+		for (TodoItem item : l.doingList()) {
+			System.out.println(item.getId() + item.toString());
+			count1 ++;
+		}
+		
+		System.out.println("\n[수행 완료된 항목]");
+		for (TodoItem item : l.completeList()) {
+			System.out.println(item.getId() + item.toString());
+			count2 ++;
+		}
+		System.out.printf("\n[수행 중]인 항목 %d개의 항목과 [수행 완료]한 항목 %d개를 찾았습니다.\n", count1, count2);	
+	}
+	
 	public static void doingList(TodoList l) {
 		int count = 0;
 		for (TodoItem item : l.doingList()) {
