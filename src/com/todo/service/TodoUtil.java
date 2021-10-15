@@ -114,6 +114,26 @@ public class TodoUtil {
 		}
 	}
 	
+	public static void todoTodayItem(TodoList l, int id1, int id2, int id3) {
+		if(l.todoTodayItem(id1, id2, id3)) {
+			System.out.println("[오늘 해야할 것]에 추가 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
+	
+	public static void todoTodayDelItem(TodoList l, int id) {
+		if(l.todoTodayDelItem(id)) {
+			System.out.println("[오늘 해야할 것]에서 삭제 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
+	
 	public static void doingItem(TodoList l, int id) {
 		if(l.doingItem(id)) {
 			System.out.println("[수행 중]으로 변경 완료");
@@ -170,6 +190,15 @@ public class TodoUtil {
 			count2 ++;
 		}
 		System.out.printf("\n[수행 중]인 항목 %d개의 항목과 [수행 완료]한 항목 %d개를 찾았습니다.\n", count1, count2);	
+	}
+	
+	public static void todoTodayList(TodoList l) {
+		int count = 0;
+		for (TodoItem item : l.todoTodayList()) {
+			System.out.println(item.getId() + item.toString());
+			count ++;
+		}
+		System.out.printf("\n%d개의 항목을 찾았습니다.\n", count);	
 	}
 	
 	public static void doingList(TodoList l) {

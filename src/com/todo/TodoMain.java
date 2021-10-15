@@ -77,6 +77,22 @@ public class TodoMain {
 			case "ls_cate":
 				TodoUtil.listCate(l);
 				break;
+				
+			case "todo_today":
+				int index1 = sc.nextInt();
+				int index2 = sc.nextInt();
+				int index3 = sc.nextInt();
+				TodoUtil.todoTodayItem(l, index1, index2, index3);
+				break;
+				
+			case "del_todo_today":
+				int indexx = sc.nextInt();
+				TodoUtil.todoTodayDelItem(l, indexx);
+				break;
+				
+			case "ls_todo_today":
+				TodoUtil.todoTodayList(l);
+				break;
 			
 			case "comp(1)":
 				int id = sc.nextInt();

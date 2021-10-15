@@ -272,6 +272,42 @@ public class TodoList {
 		return false;
 	}
 	
+	public boolean todoTodayItem(int id1, int id2, int id3) {
+		String sql1 = "update list set todo_today=1 where id = " + id1;
+		String sql2 = "update list set todo_today=1 where id = " + id2;
+		String sql3 = "update list set todo_today=1 where id = " + id3;
+		Statement stmt;
+		int count = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			count = stmt.executeUpdate(sql1);
+			count = stmt.executeUpdate(sql2);
+			count = stmt.executeUpdate(sql3);
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(count > 0) return true;
+		return false;
+	}
+	
+	public boolean todoTodayDelItem(int id) {
+		String sql = "update list set todo_today=0 where id = " + id;
+		Statement stmt;
+		int count = 0;
+		
+		try {
+			stmt = conn.createStatement();
+			count = stmt.executeUpdate(sql);
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(count > 0) return true;
+		return false;
+	}
+	
 	public boolean doingItem(int id) {
 		String sql = "update list set is_doing=1 where id = " + id;
 		Statement stmt;
@@ -358,6 +394,22 @@ public class TodoList {
 		}
 		if(count > 0) return true;
 		return false;
+	}
+	
+	public ArrayList<TodoItem> todoTodayList() {
+		ArrayList<TodoItem> list = new ArrayList<TodoItem>();
+		Statement stmt;
+		
+		try {
+			stmt = conn.createStatement();
+			String sql = "SELECT * FROM list WHERE todo_today=1";
+			ResultSet rs = stmt.executeQuery(sql);
+			changeListToType(list, rs);			
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
 	}
 	
 	public ArrayList<TodoItem> doingList() {
