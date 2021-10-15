@@ -7,7 +7,7 @@ public class Menu {
         System.out.println("< ToDoList 관리 명령어 사용법 >");
         System.out.println("[add] 항목 추가");
         System.out.println("[del] 항목 삭제");
-        System.out.println("[del(3)] 3개의 항목 동시 삭제");
+        System.out.println("[del(3) (항목번호 3개 공백으로 구분)] 3개의 항목 동시 삭제");
         System.out.println("[edit] 항목 수정");
         System.out.println("[ls] 전체 목록");
         System.out.println("[find (키워드)] 항목 검색");
