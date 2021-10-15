@@ -95,6 +95,13 @@ public class TodoMain {
 				TodoUtil.completeItem(l, id1, id2, id3);
 				break;
 				
+			case "doing(3)":
+				int idst1 = sc.nextInt();
+				int idst2 = sc.nextInt();
+				int idst3 = sc.nextInt();
+				TodoUtil.doingItem(l, idst1, idst2, idst3);
+				break;
+				
 			case "ls_comp":
 				TodoUtil.completeList(l);
 				break;

@@ -103,6 +103,16 @@ public class TodoUtil {
 			System.out.println("입력하신 ID를 다시 확인해주세요.");
 		}
 	}
+	
+	public static void doingItem(TodoList l, int id1, int id2, int id3) {
+		if(l.doingItem(id1, id2, id3)) {
+			System.out.println("[수행 완료]로 변경 완료");
+		}
+		else {
+			System.out.println("ID가 올바르지 않습니다.");
+			System.out.println("입력하신 ID를 다시 확인해주세요.");
+		}
+	}
 
 	public static void completeItem(TodoList l, int id) {
 		if(l.completeItem(id)) {
